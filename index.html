@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-design/dist/styles/iview.css" />
@@ -21,7 +21,7 @@
         <div class="text-center">
             <h1 style="margin-bottom: 20px;">培训Or外包公司查询</h1>
             <div>
-                <i-input v-model="value" placeholder="输入点什么吧..." style="width: 300px"></i-input>
+                <i-input v-model="value" placeholder="输入点什么吧..." class="search-input"></i-input>
                 <div style="margin-top: 20px;">
                     <i-button type="primary" @click="checkOutsourcing">外包</i-button>
                     <i-button type="primary" @click="checkTrain">培训</i-button>
