@@ -29,9 +29,13 @@
                 </div>
             </div>
             <div class="list-wrapper">
-                <div v-for="item in list" class="company-item">
-                    <span v-for="char in item" :class="{'red-char': redChar(char)}">{{char}}</span>
+                <div v-if="list.length">
+
+                    <div v-for="item in list" class="company-item">
+                        <span v-for="char in item" :class="{'red-char': redChar(char)}">{{char}}</span>
+                    </div>
                 </div>
+                <div v-else>暂无数据</div>
             </div>
         </div>
     </div>
