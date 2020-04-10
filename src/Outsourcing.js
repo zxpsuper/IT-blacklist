@@ -12,7 +12,7 @@ one.forEach((item) => {
 
 module.exports = Object.keys(map).map((item) => {
   let obj = {
-    name: item,
+    name: item.replace(/\s/g, ''),
     address: '',
     descript: '',
   }

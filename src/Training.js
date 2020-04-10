@@ -7,7 +7,7 @@ let one = JSON.parse(
 let oneArray = []
 for (var i = 0; i < one.length; i++) {
   oneArray.push({
-    name: one[i],
+    name: one[i].replace(/\s/g, ''),
     address: '',
     descript: '',
   })
@@ -23,7 +23,7 @@ two.forEach((item) => {
   let name = t[0].slice(3)
   let address = t[1].slice(3)
   twoArray.push({
-    name: name,
+    name: name.replace(/\s/g, ''),
     address,
     descript: '',
   })
