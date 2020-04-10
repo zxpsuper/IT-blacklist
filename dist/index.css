@@ -111,15 +111,10 @@
   width: 380px;
   border: 2px solid #eee;
 }
-
-@media screen and (max-width: 800px) {
-  #origin,
-  #new {
-    display: block;
-    width: 90%;
-    margin: 10px auto;
-    border: 2px solid #eee;
-  }
+.list-wrapper {
+  width: 460px;
+  margin: 20px auto;
+  padding: 20px 16px;
 }
 
 .red-char {
@@ -131,4 +126,26 @@
   line-height: 30px;
   font-size: 18px;
   color: #333;
+}
+
+@media screen and (max-width: 800px) {
+  #origin,
+  #new {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    border: 2px solid #eee;
+  }
+  .list-wrapper {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px 16px;
+    font-size: 16px;
+  }
+  .company-item {
+    text-align: left;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+  }
 }

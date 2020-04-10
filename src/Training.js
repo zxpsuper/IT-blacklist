@@ -29,20 +29,22 @@ two.forEach((item) => {
   })
 })
 
-let map = {}
+let map = {},
+  newTwoArray = []
 
 twoArray.forEach((element) => {
-  map[element.name] = true
+  if (!map[element.name]) {
+    map[element.name] = true
+    newTwoArray.push(element)
+  }
 })
 
 oneArray.forEach((item) => {
-  if (!map[item.name]) twoArray.push(item)
+  if (!map[item.name]) newTwoArray.push(item)
 })
 
-twoArray.sort(function (a, b) {
+newTwoArray.sort(function (a, b) {
   return a.name.localeCompare(b.name)
 })
 
-console.log(twoArray)
-
-module.exports = twoArray
+module.exports = newTwoArray
