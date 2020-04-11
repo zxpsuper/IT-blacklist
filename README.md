@@ -1,6 +1,6 @@
 # IT-blacklist
 
-培训机构，外包机构等黑名单查询
+培训机构，外包机构，996 企业等名单查询
 
 线上查询地址 [http://zxpsuper.github.io/IT-blacklist](http://zxpsuper.github.io/IT-blacklist)
 
@@ -13,6 +13,10 @@
 ## 外包机构
 
 IT 人员求职时会遇到的公司，这里提供查询辨别
+
+## 996 企业
+
+IT 人员求职时有些会介意 996，这里提供查询辨别
 
 ## 关于作者 :boy:
 

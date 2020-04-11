@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./dist/index.css" />
     <script type="text/javascript" src="https://vuejs.org/js/vue.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.min.js"></script>
-    <title>培训Or外包公司查询</title>
+    <title>公司查询</title>
 </head>
 
 <body>
@@ -19,12 +19,11 @@
         GitHub</a>
     <div id="app">
         <div class="text-center">
-            <h1 style="margin-bottom: 20px;">培训Or外包公司查询</h1>
+            <h1 style="margin-bottom: 20px;">公司查询</h1>
+            <p class="tips">TIPS: 查询是否为996, 外包或培训机构等</p>
             <div>
-                <i-input v-model="value" placeholder="输入点什么吧..." class="search-input"></i-input>
+                <i-input v-model="value" placeholder="输入公司名称吧..." class="search-input"></i-input>
                 <div style="margin-top: 20px;">
-                    <i-button type="primary" @click="checkOutsourcing">外包</i-button>
-                    <i-button type="primary" @click="checkTrain">培训</i-button>
                     <i-button type="primary" @click="add">我要补充</i-button>
                 </div>
             </div>
@@ -32,7 +31,11 @@
                 <div v-if="list.length">
 
                     <div v-for="item in list" class="company-item">
-                        <span v-for="char in item" :class="{'red-char': redChar(char)}">{{char}}</span>
+                        <span v-for="char in item.name" :class="{'red-char': redChar(char)}">{{char}}</span>
+                        <div>
+                            <Tag color="warning" v-for="label in item.label">{{label}}</Tag>
+                            <Tag color="primary" v-if="item.descript">{{item.descript}}</Tag>
+                        </div>
                     </div>
                 </div>
                 <div v-else>暂无数据</div>
@@ -44,43 +47,26 @@
             el: '#app',
             data: {
                 value: '',
-                outsourcingList: [],
-                trainList: [],
-                type: 0
+                listAll: {},
             },
             computed: {
                 list() {
-                    if (this.type === 0 || this.value === '') return []
-                    else if (this.type === 1) {
+                    if (!this.value) return []
+                    let arr = []
 
-                        let arr = [], name = ''
-                        this.outsourcingList.forEach(element => {
-                            if (element.name.includes(this.value)) {
-                                name = element.name
-                                arr.push(name)
-                            }
-                        });
-                        return arr
-                    } else {
-                        let arr = [], name = ''
-                        this.trainList.forEach(element => {
-                            if (element.name.includes(this.value)) {
-                                name = element.name
-                                arr.push(name)
-                            }
-                        });
-                        return arr
+                    for (let key in this.listAll) {
+                        if (key.includes(this.value)) {
+
+                            arr.push(this.listAll[key])
+                        }
                     }
+                    return arr
                 }
             },
             created() {
-                fetch('./dist/outsourcingList.json').then(response => response.json())
+                fetch('./dist/company-all.json').then(response => response.json())
                     .then(data => {
-                        this.outsourcingList = data
-                    })
-                fetch('./dist/trainList.json').then(response => response.json())
-                    .then(data => {
-                        this.trainList = data
+                        this.listAll = data
                     })
             },
             methods: {
