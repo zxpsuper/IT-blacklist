@@ -115,6 +115,8 @@
   width: 460px;
   margin: 20px auto;
   padding: 20px 16px;
+  height: calc(100vh - 200px);
+  overflow: auto;
 }
 
 .red-char {
@@ -155,6 +157,8 @@
     margin: 20px auto;
     padding: 0 16px;
     font-size: 16px;
+    height: calc(100vh - 200px);
+    overflow: auto;
   }
   .company-item {
     text-align: left;
